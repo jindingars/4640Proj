@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>register</title>
+	<link href="stylesNew.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+ 	<script type="text/javascript">
+  
+ 		function validateData(){
+ 			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+ 			
+			if(document.getElementById("name").value == '')
+				document.getElementById("name-msg").innerHTML = 'Please enter a valid username';
+
+			if (document.getElementById("email").value == '' || !re.test(document.getElementById("email").value))
+				alert("Please enter a valid email address.");
+			if (document.getElementById("pwd").value == '' )
+				alert("Please enter a valid password.");
+			else{
+				document.getElementById("name-msg").innerHTML = '';
+				document.myform.submit();
+			}
+		}
+ 	</script>
+
+ 	<fieldset name="userinfo">
+ 	
+ 	<legend><b>User Information</b></legend>
+ 	<form name="myform" method="post" action="register">
+ 		
+ 		Username:
+ 		<input type="text" name="name" id ='name' placeholder="Have a unique name">
+ 		<font color="red"><i><span id="name-msg"></span></i></font></br>
+ 			
+ 		Email Address:
+ 		<input type="text" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" id="email" name="email"></br>
+
+        Password: 
+        <input type="password" name="pwd" id="pwd" /></br>
+ 		
+ 		<input type="button" value="Submit!" onclick="validateData()" />
+ 	</form>
+ 	</fieldset>
+ 	
+ 	<div class="back">
+    	<p><a href="home.jsp">Back to home page</a></p>
+ 	</div>
+ 	
+
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>Post new item</title>
+    <link href="stylesNew.css" type="text/css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+  </head>
+
+  <body ng-app="myApp">
+
+  	<div>
+  		<h2> Describe your commodity and create a post!</h2><br>
+
+  		<ng-form name='myform' ng-controller='myController' >
+        <table>
+
+  		  <tr>
+          <td>
+          <label>Description:<input type="text" ng-model ="desc" name="desc" pattern="[0-9a-zA-Z\w\s*]+" required />
+          <div class="alert alert-danger" ng-show="myform.desc.$error.pattern "><font color=red>Please enter valid desc</font></div>
+          </label>
+          </td>
+          </tr>
+        
+  		  <tr>
+          <td>
+          <label>Price:<input type="text" pattern="[0-9]+[0-9.$]*" ng-model = "price" name="price" required />{{price}}
+          <div class="alert alert-danger" ng-show="myform.price.$error.pattern "><font color=red>Please enter valid price</font></div>
+          </label>
+          </td>
+          </tr>
+        
+          <tr>
+          <td>
+          <label>Type:
+  			  <select name="type" ng-model="type">
+  			  	<option selected="selected">Please select your commodity type</option>
+           		<option value="furnitures">Furnitures</option>
+          		<option value="book">Books</option>
+          		<option value="clothes">Clothes</option>
+          		<option value="kitchen">Kitchen</option>
+          		<option value="elec">Electronics</option>
+          		<option value="others">Others</option>	
+  			  </select>
+  			  <font color="red"><i><span id="type-msg" ></span></font></i>
+          </label>
+          </td>
+          </tr>
+		
+		<tr>
+        <td>
+  		<label>Locations: 
+  			<select name="location" ng-model="location">
+  				<option value="default" >Please select your location</option>
+  				<option value="The Corner" selected>The Corner</option>
+          		<option value="On Grounds">On Grounds</option>
+          		<option value="North Grounds">North Grounds</option>
+  			</select> 
+  			<font color="red"><i><span id="location-msg" ></span></font></i>
+        </label>
+        </td>
+        </tr>
+		
+        <tr>
+        <td>
+  			<label>Email:
+        <input type="email" name="email" ng-model="email" pattern="^[a-z0-9._]+@[a-z0-9._]+$" required/>
+        <div class="alert alert-danger" ng-show="myform.email.$error.pattern "><font color=red>Please enter valid email</font></div>
+        
+        </label>
+        </td>
+        </tr>
+
+    
+
+  		<tr>
+      <td><button ng-disabled="!myform.$valid" ng-click="submit()">submit</button></td>
+       <!-- <td><input type="button" onclick="validateData()" ng-click="submit()" value="Submit"></td><!-- onclick="validateData()" -->
+        </tr>
+        </table>
+        
+  		</ng-form>
+
+
+      <div class="back">
+      <p><a href="home.jsp" >Back to home page</a></p>
+      </div>
+  	</div>
+  	
+   <script>
+   
+     var myApp = angular.module('myApp', []);
+
+      myApp.controller("myController", function ($scope, $http) 
+      {
+/*     	  $scope.resetInfo=function()
+    	    {
+    	        $scope.desc="";
+    	        $scope.price="";
+    	        $scope.email="";
+    	        $scope.type="";
+    	        $scope.location=""; 
+    	        
+    	    } */
+
+    	    $scope.submit=function()
+    	    {
+    	        var postData = "?desc="+$scope.desc+"&"+"price="+$scope.price+"&"+"email="+$scope.email+"&"+"type="+$scope.type+"&"+"location="+$scope.location;
+    	        var url = "post" + postData; // post is url-pattern for servlet
+
+    	        $http.post(url).success(function(data)
+    	        {
+    	            alert(data);
+    	            window.location.href = 'home.jsp';
+    	        });
+
+    	    }
+
+    	});
+      
+    </script>
+
+  </script>
+  </body>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Play with us!</title>
+  <script type="text/javascript" src="welcome.js"></script>
+  <script>
+    function setFocus()
+    {
+       document.nameForm.txt1.focus(); 
+    }
+  </script>
+</head>
+
+<body onload="setFocus()">
+
+  <h2>Where do you live</h2>
+  <form name="nameForm" method="get">
+   North Grounds, on Grounds or the Corner?  
+<!--    <select name='txt1' id="txt1" onclick="showHint(this.value)">
+   	<option value="North Grounds">North Grounds</option>
+   	<option value="On Grounds">On Grounds</option>
+   	<option value="The Corner">The Corner</option>
+   </select> -->
+   <input type= "radio" name='txt1' id="txt1" value="North Grounds" onclick="showHint(this.value)"/>North Grounds
+   <input type= "radio" name='txt1' id="txt1" value="On Grounds" onclick="showHint(this.value)"/>On Grounds
+   <input type= "radio" name='txt1' id="txt1" value="The Corner" onclick="showHint(this.value)"/>The Corner
+   <!-- <input type="text" name="txt1" id="txt1" onkeyup="showHint(this.value)" /> -->    
+  </form>
+  <p><span id="txtHint"></span></p>
+
+</body>
+</html>
+
+    

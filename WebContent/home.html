@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="stylesNew.css" type="text/css" rel="stylesheet"/>
+    <!--<link href="test.css" type="text/css" rel="stylesheet"/>-->
+  </head>
+  <body>
+
+    <header>
+    <h1>UVa Second Hand Market</h1>
+    <p class='slogan'><span>Free website for selling!</span></p>
+    </header>
+
+    <script type="text/javascript">
+      function setFocus() {
+      // body...
+      //document.mainform.desc.focus(); //access an object 
+      document.getElementById('desc').focus();
+     }
+    </script>
+
+
+    <form name="mainform" >
+      <div class= "searchBox">
+        <input type="text" id = "taskdesc" name="desc" />
+        <font color="red"><i><span id="task-msg" ></span></font></i>
+      </div>
+      <div class="searchBtn">
+      <input type="button" id="add" value="search" class = "btn btn-submit" onclick="validateData()">
+      </div>
+    </form>
+
+
+    <script type="text/javascript">
+      function validateData(){
+        if(document.getElementById('taskdesc').value == ""){
+          document.getElementById("task-msg").innerHTML = "Please enter Key Word";
+        }
+        else
+          document.getElementById("task-msg").innerHTML = "";
+      }
+    </script>
+
+    <div id="base" class="">
+
+    <nav>
+    <div id="locations" >
+      <div id="locations_div" ></div>
+        <div id="locations_text">
+          <p><span>Locations</span></p>
+        </div>
+      </div>
+
+      <style type="text/css">
+      h5.stacking {
+        position: absolute;
+        background: lightblue;
+        opacity: 0.6;
+        z-index: 10;
+      }
+      </style>
+
+      <div id="onGrounds" class="linkText">
+        <p><a class="link"><span>On Grounds</span></a></p>
+      </div>
+
+     
+      <div id="theCorner" class="linkText">
+        <p><a class="link"><span>The Corner</span></a></p>
+      </div>
+
+     
+      <div id="northGrounds" class="linkText">
+        <p><a class="link"><span>North Grounds</span></a></p>
+      </div>
+
+      <div id="types" class="ax_default button">
+        <div id="types_div" class=""></div>
+        <div id="types_text" class="text ">
+          <p><span>Types</span></p>
+        </div>
+      </div>
+
+      <div id="books" >   
+        <p><a class="link"><span>Books</span></a></p> 
+      </div>
+
+      <div id="furnitures" >
+        <p><a class="link"><span>Furnitures</span></a></p>
+      </div>
+
+      <div id="clothes">
+        <p><a class="link"><span>Clothes</span></a></p>
+      </div>
+
+      <div id="clothes">
+        <p><a class="link"><span>Clothes</span></a></p>
+      </div>
+
+      <div id="kitchenTools">
+        <p><a class="link"><span>Kitchen tools</span></a></p>
+      </div>
+
+      <div id="electricities">
+        <p><a class="link"><span>Electricites</span></a></p>
+      </div>
+
+      <div id="freeSection">
+        <p><a class="link"><span>Free Section</span></a></p>
+      </div>
+
+      <div id="kitchenTools">
+        <p><a class="link"><span>Kitchen tools</span></a></p>
+      </div>
+
+      </nav>
+
+      <script type="text/javascript">
+        window.onload = function(){  
+          var btn = document.getElementById("imgLeft");  
+   
+          btn.addEventListener("mouseover",function(){ document.getElementById("description").innerHTML = "It's on sale!";}); 
+          btn.addEventListener("mouseout",function(){ document.getElementById("description").innerHTML = "";});  
+          
+        }  
+        
+      </script>
+
+    
+      <section>
+      <div >
+      <img id="imgLeft" class="img" src="clo.png"/>     
+      <img id="imgRight" class="img"  src="gitar.jpg"/>
+      <font color="red"><i><span id="description" ></span></font></i>
+      </div>
+      </section>
+      
+
+      <div id="u20" class="ax_default link_button">
+        <div id="u20_div" class=""></div>
+      </div>
+
+ 
+      <style >
+        .postn{
+          position: fixed;
+          background-color: lightblue;
+          left: 850px;
+          width: 250px;
+          top: 200px;
+          transition: width 2s,height 2s, background-color 2s, transform 2s;
+        }
+        .postn:hover {
+          background-color: lightgray;
+          width: 200px;
+          height: 100px;
+
+        }
+
+        .welcome {
+          position: absolute;
+          top: 520px;
+          left: 300px;
+          width: 350px;
+          font-size: 40;
+          transform: rotate(-20deg);
+          font-size: 150%;
+          color: purple;
+        }
+
+      </style>
+       
+      <div class= "postn">
+      <p><a href = 'post.html'>Post new items</a></p>
+      </div>
+
+      <div class="welcome">
+         <p onclick="changetext(this)">Welcome to our website, click me;)</p>
+      </div>
+
+      <script>
+        function changetext(id){
+          id.innerHTML="Have a great day!";
+        }
+      </script>
+   
+      <div>
+      <p><a href="register.html" class= "register_div">Register for our website</a></p>
+      </div>
+      
+  </body>
+</html>
